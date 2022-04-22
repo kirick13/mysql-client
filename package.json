@@ -1,0 +1,29 @@
+{
+  "name": "@kirick/mysql-client",
+  "version": "0.1.0-beta.1",
+  "description": "Enhanced MySQL/MariaDB client.",
+  "main": "main.js",
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"dependencies": {
+		"mysql2": "2.3.3"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirick13/mysql-client.git"
+  },
+  "keywords": [
+    "mysql",
+    "maria",
+    "mariadb",
+    "sql",
+    "client"
+  ],
+  "author": "Daniil Kirichenko (https://twitter.com/kirickme)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kirick13/mysql-client/issues"
+  },
+  "homepage": "https://github.com/kirick13/mysql-client#readme"
+}
