@@ -1,13 +1,17 @@
 {
 	"name": "@kirick/mysql-client",
-	"version": "0.1.0-beta.1",
+	"version": "0.1.0-beta.2",
 	"description": "Enhanced MySQL/MariaDB client.",
+	"publishConfig": {
+		"access": "public",
+		"tag": "beta"
+	},
 	"main": "main.js",
 	"engines": {
 		"node": ">=10.0.0"
 	},
 	"dependencies": {
-		"mysql2": "2.3.3"
+		"mysql": "2.18.1"
 	},
 	"repository": {
 		"type": "git",

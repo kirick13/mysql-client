@@ -1,10 +1,10 @@
 
 const { createPool,
-		format    } = require('mysql2');
+        format    } = require('mysql');
 
 const { isPlainObject,
-		parseKeyedQuery,
-		iterableValueToArray } = require('./tools');
+        parseKeyedQuery,
+        iterableValueToArray } = require('./tools');
 
 class MySQLClient {
 	constructor (options) {
@@ -43,36 +43,6 @@ class MySQLClient {
 
 		return new Promise((resolve, reject) => {
 			this._pool.query(
-				query,
-				values,
-				(error, rows) => {
-					if (error) {
-						reject(error);
-					}
-					else {
-						resolve(rows);
-					}
-				},
-			);
-		});
-	}
-
-	/* async */ execute (query, values) {
-		if (isPlainObject(values)) {
-			[ query, values ] = parseKeyedQuery(query, values);
-		}
-
-		if (Array.isArray(values)) {
-			iterableValueToArray(values);
-		}
-
-		// console.log('MYSQL EXECUTE');
-		// console.log('query', query);
-		// console.log('values', values);
-		// console.log('result', format(query, values));
-
-		return new Promise((resolve, reject) => {
-			this._pool.execute(
 				query,
 				values,
 				(error, rows) => {
@@ -129,7 +99,7 @@ class MySQLClient {
 		);
 		const values_placeholder = new Array(rows.length).fill('(' + new Array(fields.length).fill('?').join(', ') + ')').join(', ');
 
-		return this.execute(
+		return this.query(
 			`${sql_begin} VALUES ${values_placeholder};`,
 			values,
 		);
